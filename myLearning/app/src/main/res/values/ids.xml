@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="main" type="id"/>
+    <item name="mytext" type="id"/>
+    <item name="btn" type="id"/>
+    <item name="myEditText" type="id"/>
+</resources>
