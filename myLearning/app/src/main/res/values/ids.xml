@@ -3,5 +3,7 @@
     <item name="main" type="id"/>
     <item name="mytext" type="id"/>
     <item name="btn" type="id"/>
+    <item name="search_bar" type="id" />
+    <item name="home" type="id" />
     <item name="myEditText" type="id"/>
 </resources>

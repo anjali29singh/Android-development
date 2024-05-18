@@ -28,7 +28,20 @@ public class MainActivity extends AppCompatActivity {
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+
                 goToSecondActivity();
+
+                //pass data between activities
+
+                Intent i = new Intent(getApplicationContext(), SecondaryActivity.class);
+                String data="anjali";
+                i.putExtra("name",data);
+                startActivity(i);
+
+                //share data among different components of  application or different application in android
+
+
             }
         });
 

@@ -8,14 +8,25 @@
     tools:context=".SecondaryActivity">
 
     <TextView
+        android:id="@+id/textView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textColor="#E3CF20"
-        android:layout_marginTop="136dp"
-        android:text="secondary activity"
-        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="52dp"
         android:gravity="center"
+        android:text="secondary activity"
+        android:textColor="#E3CF20"
         android:textSize="30sp"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <CheckBox
+        android:id="@+id/checkbox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="44dp"
+        android:text="burger"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
 </androidx.constraintlayout.widget.ConstraintLayout>
