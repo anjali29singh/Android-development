@@ -11,7 +11,7 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener{
     Button redBtn ,blueBtn,greenBtn,blackBtn,yellowBtn;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,55 +24,39 @@ public class MainActivity extends AppCompatActivity {
         blackBtn = findViewById(R.id.blackBtn);
         yellowBtn = findViewById(R.id.yellowBtn);
 
-        redBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                MediaPlayer mediaPlayer = MediaPlayer.create(getApplicationContext(),R.raw.red);
-                mediaPlayer.start();
+        redBtn.setOnClickListener(this);
+        blueBtn.setOnClickListener(this);
+
+        greenBtn.setOnClickListener(this);
+
+        blackBtn.setOnClickListener(this);
+
+        yellowBtn.setOnClickListener(this);
+
+    }
 
 
-            }
-        });
+    public void onClick(View v){
 
-        blueBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                MediaPlayer mediaPlayer = MediaPlayer.create(getApplicationContext(),R.raw.blue);
-                mediaPlayer.start();
+        int clickedBtnId = v.getId();
 
+        if(clickedBtnId == R.id.redBtn){
+            playSound(R.raw.red);
+        }else if(clickedBtnId == R.id.blueBtn) {
+            playSound(R.raw.blue);
+        }else if(clickedBtnId== R.id.greenBtn){
+            playSound(R.raw.green);
+        }else if(clickedBtnId ==  R.id.yellowBtn)
+        {
+            playSound(R.raw.yellow);
+        } else playSound(R.raw.black);
 
-            }
-        });
+    }
 
-        greenBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                MediaPlayer mediaPlayer = MediaPlayer.create(getApplicationContext(),R.raw.green);
-                mediaPlayer.start();
+    public void playSound(int id){
 
-
-            }
-        });
-
-        blackBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                MediaPlayer mediaPlayer = MediaPlayer.create(getApplicationContext(),R.raw.black);
-                mediaPlayer.start();
-
-
-            }
-        });
-
-        yellowBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                MediaPlayer mediaPlayer = MediaPlayer.create(getApplicationContext(),R.raw.yellow);
-                mediaPlayer.start();
-
-
-            }
-        });
+        MediaPlayer mediaPlayer = MediaPlayer.create(this,id);
+        mediaPlayer.start();
 
     }
 }
