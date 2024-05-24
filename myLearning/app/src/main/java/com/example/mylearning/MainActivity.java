@@ -4,8 +4,10 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -16,21 +18,37 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 public class MainActivity extends AppCompatActivity {
-
+    Spinner spinner;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 //        EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
 
-        Button btn = findViewById(R.id.btn);
+
+   /**     spinner = findViewById(R.id.spinner);
+
+
+        //create adapter for spinner, listview,gridview
+
+        String[] courses ={"C++","Java","Python","Kotlin"};
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(
+                this, android.R.layout.simple_spinner_dropdown_item,courses);
+
+
+        spinner.setAdapter(adapter);
+
+    **/
+
+
+       /* Button btn = findViewById(R.id.btn);
 
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
 
-                goToSecondActivity();
+//                goToSecondActivity();
 
                 //pass data between activities
 
@@ -45,7 +63,9 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        Button webBtn = findViewById(R.id.webBtn);
+/
+        */
+      /*  Button webBtn = findViewById(R.id.webBtn);
         webBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -54,7 +74,9 @@ public class MainActivity extends AppCompatActivity {
         });
 
     }
-    public void goToSecondActivity(){
+    */
+       */
+    /*public void goToSecondActivity(){
 
         Intent intent = new Intent(this, SecondaryActivity.class);
         startActivity(intent);
@@ -68,6 +90,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+*/
 
 //    @Override
 //    protected  void onStart(){
