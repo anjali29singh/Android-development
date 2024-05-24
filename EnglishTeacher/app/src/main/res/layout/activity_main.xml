@@ -14,7 +14,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="76dp"
         android:layout_marginTop="192dp"
-        android:text="Hindi Teacher App"
+        android:text="English Teacher App"
         android:textColor="@color/white"
         android:textSize="30sp"
         app:layout_constraintStart_toStartOf="parent"
