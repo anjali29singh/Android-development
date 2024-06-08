@@ -15,7 +15,7 @@ import java.util.ArrayList;
 
 public class MyCustomAdapter extends ArrayAdapter<Shape> {
 
-    private ArrayList<Shape> shapesList;
+    private final ArrayList<Shape> shapesList;
     Context context;
 
     public MyCustomAdapter(ArrayList<Shape> shapesList,@NonNull Context context) {
@@ -50,8 +50,8 @@ public class MyCustomAdapter extends ArrayAdapter<Shape> {
             convertView = inflater.inflate(R.layout.grid_item_layout,parent,false);
 
             //find views;
-            myViewHolder.shapeName = (TextView) convertView.findViewById(R.id.shape_name);
-            myViewHolder.shapeImg =  (ImageView) convertView.findViewById(R.id.shape_img);
+            myViewHolder.shapeName = convertView.findViewById(R.id.shape_name);
+            myViewHolder.shapeImg = convertView.findViewById(R.id.shape_img);
             convertView.setTag(myViewHolder);
 
         }
