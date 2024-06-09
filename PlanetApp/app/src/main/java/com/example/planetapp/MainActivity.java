@@ -36,6 +36,8 @@ public class MainActivity extends AppCompatActivity {
         planetArrayList.add(planet3);
         Planet planet4 = new Planet("saturn","9",R.drawable.saturn);
         planetArrayList.add(planet4);
+     
+
 
         //adapter
         adapter = new CustomAdapter(planetArrayList,getApplicationContext());
