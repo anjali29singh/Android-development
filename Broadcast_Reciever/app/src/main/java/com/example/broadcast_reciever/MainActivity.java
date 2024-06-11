@@ -1,5 +1,6 @@
 package com.example.broadcast_reciever;
 
+import android.content.IntentFilter;
 import android.os.Bundle;
 
 import androidx.activity.EdgeToEdge;
@@ -15,6 +16,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
+        IntentFilter intentFilter = new IntentFilter("android.intent.action.AIRPLANE_MODE");
+        AirplaneModeReceiver br = new AirplaneModeReceiver();
+        registerReceiver(br,intentFilter);
 
     }
 }
