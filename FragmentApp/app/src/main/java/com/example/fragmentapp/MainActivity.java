@@ -21,7 +21,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
-
         btn1 = findViewById(R.id.btn1);
         btn2 = findViewById(R.id.btn2);
         btn1.setOnClickListener(new View.OnClickListener() {
@@ -48,6 +47,6 @@ public class MainActivity extends AppCompatActivity {
 
         //replace the frameLayout with new layout;
         ft.replace(R.id.frame_layout,fragment);
-
+        ft.commit();
     }
 }
