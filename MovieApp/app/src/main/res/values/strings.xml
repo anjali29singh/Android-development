@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">MovieApp</string>
+    <string name="API_KEY">611f76f753ddf6a096391d4ec89b12d8</string>
+    <string name="API_TOKEN">eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI2MTFmNzZmNzUzZGRmNmEwOTYzOTFkNGVjODliMTJkOCIsIm5iZiI6MTcxOTIxMzgxNC45OTAzOTMsInN1YiI6IjY2NzhlYjY3MTc3NzFlYTM3OTQxNzM1MiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.1RZMi-M3INDUkI1mQWRm_o-lf4E9xjyCD9vPqA6RxJw</string>
 </resources>
