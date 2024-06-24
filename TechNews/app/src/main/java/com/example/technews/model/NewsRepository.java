@@ -32,7 +32,7 @@ public class NewsRepository {
 
         NewsApiService newsApiService = RetrofitInstance.getService();
 
-        Call<Result> call = newsApiService.getTechNews(application.getApplicationContext().getString(R.string.query),application.getApplicationContext().getString(R.string.apiKey));
+        Call<Result> call = newsApiService.getTechNews(application.getApplicationContext().getString(R.string.tech),application.getApplicationContext().getString(R.string.sortBy),application.getApplicationContext().getString(R.string.apiKey));
 
         //enqueue is  asynchronous(background) method to make http request
 

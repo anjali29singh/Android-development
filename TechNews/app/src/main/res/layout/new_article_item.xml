@@ -34,13 +34,13 @@
                 bind:urlToImage="@{article.urlToImage}"
                 android:layout_width="match_parent"
                 android:scaleType="fitXY"
-                android:layout_height="200dp" />
+                android:layout_height="100dp" />
 
             <TextView
                 android:id="@+id/titleTextView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@{article.title}"
+                android:text="@{article.title}"
                 android:layout_below="@+id/imageView"
                 android:paddingLeft="15dp"
                 android:textSize="24sp"

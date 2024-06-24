@@ -37,8 +37,8 @@ public class ArticleAdapter extends RecyclerView.Adapter<ArticleAdapter.ArticleV
     public void onBindViewHolder(@NonNull ArticleViewHolder holder, int position) {
 
         Article article = articlesArrayList.get(position);
-
-        holder.newsListItemBinding.setArticle(article);
+        if(article.getUrlToImage()!=null && article.getUrlToImage()!="Removed")
+            holder.newsListItemBinding.setArticle(article);
     }
 
     @Override

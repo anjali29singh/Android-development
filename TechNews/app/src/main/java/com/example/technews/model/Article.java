@@ -69,7 +69,6 @@ public class Article extends BaseObservable {
 
     @BindingAdapter({"urlToImage"})
     public static void loadImage(ImageView imageView,String  urlToImage){
-
         Glide.with(imageView.getContext()).load(urlToImage).into(imageView);
     }
     @Bindable

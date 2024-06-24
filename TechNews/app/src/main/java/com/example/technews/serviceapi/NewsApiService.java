@@ -8,6 +8,6 @@ import retrofit2.http.Query;
 
 public interface NewsApiService {
 
-    @GET("v2/everything")
-    Call<Result> getTechNews(@Query("q") String query,@Query("apiKey") String apikey);
+    @GET("v2/everything?")
+    Call<Result> getTechNews(@Query("q") String tech,@Query("sortBy") String sortBy,@Query("apiKey") String apikey);
 }
