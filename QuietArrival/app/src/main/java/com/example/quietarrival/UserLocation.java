@@ -1,4 +1,4 @@
 package com.example.quietarrival;
 
-public class UserLocation {
+public class UserLocation  {
 }
