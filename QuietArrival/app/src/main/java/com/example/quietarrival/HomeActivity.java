@@ -15,7 +15,8 @@ public class HomeActivity extends BaseActivity {
 
         getLayoutInflater().inflate(R.layout.home_main,frameLayout);
 
-
+        mDrawerList.setItemChecked(position, true);
+        setTitle(listArray[position]);
 
     }
 }

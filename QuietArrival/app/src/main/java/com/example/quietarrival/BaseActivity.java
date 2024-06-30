@@ -1,22 +1,33 @@
 package com.example.quietarrival;
 
+import android.content.Intent;
+import android.content.res.Configuration;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.FrameLayout;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.activity.OnBackPressedCallback;
+import androidx.activity.OnBackPressedDispatcher;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.quietarrival.adapter.NavigationDrawerListAdapter;
 import com.example.quietarrival.models.Items;
+import com.google.android.gms.location.FusedLocationProviderClient;
+import com.google.android.gms.location.LocationServices;
 
 import java.util.ArrayList;
 
@@ -44,6 +55,9 @@ public class BaseActivity  extends AppCompatActivity {
     private ActionBarDrawerToggle actionBarDrawerToggle ;
     private ColorDrawable colorDrawable = new ColorDrawable(Color.parseColor("#009A9A"));
 
+    private OnBackPressedDispatcher onBackPressDispatcher;
+
+    private FusedLocationProviderClient fusedLocationClient;
     //create google client
 
 
@@ -58,6 +72,10 @@ public class BaseActivity  extends AppCompatActivity {
         frameLayout =findViewById(R.id.content_frame);
         mDrawerLayout = findViewById(R.id.drawer_layout);
         mDrawerList = findViewById(R.id.left_drawer);
+
+        onBackPressDispatcher = getOnBackPressedDispatcher();
+
+        fusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
 
         listItems = new ArrayList<Items>();
 
@@ -114,12 +132,125 @@ public class BaseActivity  extends AppCompatActivity {
             }
 
         };
-        //client  = new GoogleApiClient.Builder(this).addApi(LocationServices.API).build();
 
+
+        onBackPressDispatcher.addCallback(this, new OnBackPressedCallback() {
+            @Override
+            public void handleOnBackPressed() {
+
+                handleOnBackPressed();
+            }
+        });
     }
 
     protected  void openActivity(int position){
 
+        mDrawerLayout.closeDrawer(mDrawerList);
+        BaseActivity.position = position;
+
+        switch (position) {
+            case 0:
+                startActivity(new Intent(this, HomeActivity.class));
+                break;
+            case 1:
+                startActivity(new Intent(this, PlaceCurrent.class));
+                break;
+            case 2:
+                startActivity(new Intent(this, TimeActivity.class));
+                break;
+            case 3:
+                startActivity(new Intent(this, HelpActivity.class));
+                break;
+            case 4:
+                startActivity(new Intent(this, AboutUs.class));
+                break;
+
+            default:
+                break;
+        }
 
     }
+
+    @Override
+    protected void onPostCreate(Bundle savedInstanceState) {
+        super.onPostCreate(savedInstanceState);
+        actionBarDrawerToggle.syncState();
+    }
+
+    @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+        actionBarDrawerToggle.onConfigurationChanged(newConfig);
+    }
+
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        if (actionBarDrawerToggle.onOptionsItemSelected(item)) {
+            return true;
+        }
+        if (item != null && item.getItemId() == android.R.id.home) {
+            toggle();
+
+        }
+        switch (item.getItemId()) {
+            case R.id.action_settings:
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+//		return super.onOptionsItemSelected(item);
+
+    }
+
+    private void toggle() {
+        if (mDrawerLayout.isDrawerVisible(GravityCompat.START)) {
+            mDrawerLayout.closeDrawer(GravityCompat.START);
+        } else {
+            mDrawerLayout.openDrawer(GravityCompat.START);
+        }
+    }
+
+
+
+    public  void handleBackPressed(){
+
+
+                    if(mDrawerLayout.isDrawerOpen(mDrawerList)) {
+
+                        mDrawerLayout.closeDrawer(mDrawerList);
+                    }else{
+
+                        if(System.currentTimeMillis()-4000 > lastBackPressTime){
+
+                            LayoutInflater inflater = getLayoutInflater();
+                            View  layout = inflater.inflate(R.layout.toast,(ViewGroup)findViewById(R.id.custom_toast_container));
+
+                            TextView text = (TextView) layout.findViewById(R.id.text);
+                            text.setText("Press back again to close this app");
+                            toast.setDuration(Toast.LENGTH_SHORT);
+                            toast.setView(layout);
+                            toast.show();
+                            lastBackPressTime = System.currentTimeMillis();
+
+                        }
+                        else{
+                            if (toast != null) {
+                                toast.cancel();
+                            }
+
+                            Intent intent = new Intent(Intent.ACTION_MAIN);
+                            intent.addCategory(Intent.CATEGORY_HOME);
+                            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                            startActivity(intent);
+                        }
+                    }
+
+
+
+            }
+
+
+
 }
