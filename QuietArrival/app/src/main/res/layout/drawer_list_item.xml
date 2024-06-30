@@ -22,7 +22,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/dummy_string"
-            android:textSize="15dp"
+            android:textSize="15sp"
             android:textColor="#FFFFFF"
             android:fontFamily="sans-serif-thin"
             android:itemTextAppearance="@style/NavigationDrawerStyle"/>

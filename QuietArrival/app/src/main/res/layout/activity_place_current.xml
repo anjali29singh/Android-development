@@ -112,7 +112,6 @@
         android:layout_marginLeft="20dp"
         android:layout_marginTop="160dp"
         android:id="@+id/buttonstart"
-        android:fontFamily="sans-serif-thin"
         android:onClick="addGeofencesButtonHandler"
         android:background="#009A9A"
         android:textColor="#FFFFFF"/>
@@ -120,7 +119,6 @@
     <Button
         android:background="#009A9A"
         android:textColor="#FFFFFF"
-        android:fontFamily="sans-serif-thin"
         android:text="Stop"
         android:layout_width="100dp"
         android:layout_height="50dp"
@@ -136,7 +134,6 @@
 
 
     <Button
-        android:fontFamily="sans-serif-thin"
         android:layout_width="200dp"
         android:layout_height="50dp"
         android:layout_marginTop="250dp"

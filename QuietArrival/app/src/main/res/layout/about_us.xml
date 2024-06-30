@@ -7,40 +7,40 @@
     android:orientation="vertical">
 
     <TextView
+        android:id="@+id/about_us_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="sans-serif-thin"
         android:textSize="30sp"
         android:textColor="#009A9A"
         android:layout_marginTop="100dp"
         android:layout_gravity="center_horizontal"
-        android:text="Ashrin Tamim."/>
+        android:text="Anjali Singh"/>
 
     <TextView
+        android:id="@+id/about_us_profile"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="sans-serif-thin"
         android:textSize="20sp"
         android:textColor="#009A9A"
         android:layout_gravity="center_horizontal"
-        android:text="Roll: 1307040."/>
+        android:text="Btech Student"/>
 
     <TextView
+        android:id="@+id/about_us_contactTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="sans-serif-thin"
-        android:textSize="30sp"
+        android:textSize="25sp"
         android:textColor="#009A9A"
         android:layout_gravity="center_horizontal"
-        android:text="Faojul Ahsan."/>
+        android:text="Contact: "/>
 
     <TextView
+        android:id="@+id/about_us_gmail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="sans-serif-thin"
-        android:textSize="2sdp"
+        android:textSize="10sp"
         android:textColor="#009A9A"
         android:layout_gravity="center_horizontal"
-        android:text="Roll: 1307058"/>
+        android:text="anjalisinghdev@gmail.com"/>
 
 </LinearLayout>
