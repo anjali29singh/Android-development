@@ -12,6 +12,7 @@ import android.os.Bundle;
 import android.provider.SyncStateContract;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.TextView;
 import android.content.SharedPreferences;
@@ -198,8 +199,78 @@ public class PlaceCurrent extends  BaseActivity    {
 //                    ((EditText)dialog.findViewById(R.id.dialogueLongitude)).setHint(String.format(v.getResources().getString(R.string.Hint_Longitude), Constants.Geometry.MinLongitude, Constants.Geometry.MaxLongitude));
 //                    ((EditText)dialog.findViewById(R.id.dialogueRadious)).setHint(String.format(v.getResources().getString(R.string.Hint_Radius), Constants.Geometry.MinRadius, Constants.Geometry.MaxRadius));
 
+                    dialogButtonSave.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+
+                            name = ((EditText)dialog.findViewById(R.id.dialogueName)).getText().toString();
+                            String slat = ((EditText)dialog.findViewById(R.id.dialogueLongitude)).getText().toString();
+
+                            String slong = ((EditText)dialog.findViewById(R.id.dialogueLongitude)).getText().toString();
+
+                            latitude = Double.parseDouble(slat);
+                            longitude = Double.parseDouble(slong);
+                            sradius = ((EditText)dialog.findViewById(R.id.dialogueRadius)).getText().toString();
+
+                            radius = Integer.parseInt(sradius);
+                            GeofenceDataProvider.setvalue(name, latitude, longitude, radius);
+                            populateGeofenceList();
+                            if (mGeofencesAdded) {
+                                addListtoGeofenceAfterSilentZoneadded();
+
+                            }
+                            dialog.dismiss();
+
+                        }
+
+                    });
+
+                    dialog.show();
 
 
+
+                }
+                else{
+                    String  slat = String.valueOf(mCurrLocation.getLatitude());
+
+                    if(slat!=null) ((EditText)dialog.findViewById(R.id.dialogueLatitude)).setText(slat);
+
+                    latitude = mCurrLocation.getLatitude();
+                    String slong = String.valueOf(mCurrLocation.getLongitude());
+
+                    if(slong!=null) ((EditText)dialog.findViewById(R.id.dialogueLongitude)).setText(slong);
+
+                    longitude = mCurrLocation.getLongitude();
+
+
+                    // if button is clicked, close the custom dialog
+                    dialogButtonCancel.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            dialog.dismiss();
+
+
+                        }
+                    });
+
+
+                    dialogButtonSave.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            name = ((EditText) dialog.findViewById(R.id.dialogueName)).getText().toString();
+                            sradius = ((EditText) dialog.findViewById(R.id.dialogueRadious)).getText().toString();
+                            radius = Integer.parseInt(sradius);
+                            GeofenceDataProvider.setvalue(name, latitude, longitude, radius);
+                            populateGeofenceList();
+                            if (mGeofencesAdded) {
+                                addListtoGeofenceAfterSilentZoneadded();
+
+                            }
+
+                            dialog.dismiss();
+                        }
+                    });
+                    dialog.show();
 
 
 
@@ -209,6 +280,11 @@ public class PlaceCurrent extends  BaseActivity    {
         });
 
     }
+
+
+
+
+
 
 
 }
