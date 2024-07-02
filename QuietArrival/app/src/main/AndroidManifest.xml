@@ -33,6 +33,21 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".BaseActivity" />
+        <activity android:name=".PlaceList"/>
+        <activity android:name=".TimeActivity"/>
+        <activity android:name=".SettingsActivity"/>
+        <activity android:name=".HelpActivity"/>
+        <activity android:name=".AboutUs"/>
+        <activity android:name=".PickPlace"/>
+        <activity android:name=".PlaceCurrent"/>
+        <receiver android:name=".SilenceBroadcastReceiver">
+
+            <intent-filter >
+
+
+            </intent-filter>
+        </receiver>
 
     </application>
 

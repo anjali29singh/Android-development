@@ -1,4 +1,7 @@
 package com.example.quietarrival;
 
-public class TimeActivity {
+public class TimeActivity extends  BaseActivity{
+
+
+
 }

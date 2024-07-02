@@ -1,5 +1,6 @@
 package com.example.quietarrival;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.graphics.Color;
@@ -17,6 +18,7 @@ import android.widget.Toast;
 
 import androidx.activity.OnBackPressedCallback;
 import androidx.activity.OnBackPressedDispatcher;
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
@@ -134,11 +136,11 @@ public class BaseActivity  extends AppCompatActivity {
         };
 
 
-        onBackPressDispatcher.addCallback(this, new OnBackPressedCallback() {
+        onBackPressDispatcher.addCallback(this, new OnBackPressedCallback(true){
             @Override
             public void handleOnBackPressed() {
 
-                handleOnBackPressed();
+                handleBackPressed();
             }
         });
     }
@@ -178,28 +180,27 @@ public class BaseActivity  extends AppCompatActivity {
     }
 
     @Override
-    public void onConfigurationChanged(Configuration newConfig) {
+    public void onConfigurationChanged(@NonNull Configuration newConfig) {
         super.onConfigurationChanged(newConfig);
         actionBarDrawerToggle.onConfigurationChanged(newConfig);
     }
 
 
+
     @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
 
         if (actionBarDrawerToggle.onOptionsItemSelected(item)) {
             return true;
         }
-        if (item != null && item.getItemId() == android.R.id.home) {
+        if (item.getItemId() == android.R.id.home) {
             toggle();
 
         }
-        switch (item.getItemId()) {
-            case R.id.action_settings:
-                return true;
-            default:
-                return super.onOptionsItemSelected(item);
+        if (item.getItemId() == R.id.action_settings) {
+            return true;
         }
+        return super.onOptionsItemSelected(item);
 //		return super.onOptionsItemSelected(item);
 
     }

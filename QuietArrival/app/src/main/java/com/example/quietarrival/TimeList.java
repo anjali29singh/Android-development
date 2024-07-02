@@ -6,11 +6,13 @@ import android.widget.RadioButton;
 
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.quietarrival.adapter.TimeDateAdapter;
+
 import java.util.List;
 
 public class TimeList extends  BaseActivity{
 
-    List<TimeDate> mTimeDateList;
+    List<TimeDate> mTimeDataList;
 
 
     final Context context = this;
