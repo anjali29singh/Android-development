@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#E0F2F1"
-    tools:context="com.example.project.smartsilent.PlaceCurrent">
+    tools:context="com.example.quietarrival.PlaceCurrent">
 
 
 
@@ -114,11 +114,11 @@
         android:id="@+id/buttonstart"
         android:onClick="addGeofencesButtonHandler"
         android:background="#009A9A"
-        android:textColor="#FFFFFF"/>
+        android:textColor="@color/TextColor.Black"/>
 
     <Button
         android:background="#009A9A"
-        android:textColor="#FFFFFF"
+        android:textColor="@color/TextColor.Black"
         android:text="Stop"
         android:layout_width="100dp"
         android:layout_height="50dp"
@@ -140,7 +140,7 @@
         android:layout_marginLeft="80dp"
         android:text="Select this Place"
         android:background="#009A9A"
-        android:textColor="#FFFFFF"
+        android:textColor="@color/TextColor.Black"
         android:id="@+id/addGeofence"/>
 
 

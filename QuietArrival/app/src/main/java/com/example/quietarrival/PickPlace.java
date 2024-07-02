@@ -1,4 +1,12 @@
 package com.example.quietarrival;
 
-public class PickPlace {
+import android.widget.RadioButton;
+
+import com.google.android.gms.location.FusedLocationProviderClient;
+
+public class PickPlace extends  BaseActivity {
+
+    private RadioButton button PlaceList
+
+
 }
